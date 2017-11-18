@@ -29,6 +29,7 @@ La commande ltrace
 Utiliser EDB (IHM) ou GDB (CLI).
 
 Executer le programme sans débugger pour voir le comportement.
+Pour la suite du cours, j'utiliserai EDB. Si vous souhaitez l'installer, suivez ![le guide d'installation](Documentation/install%20EDB.md).
 
 débug du programme sans passage d'arguments:
 
