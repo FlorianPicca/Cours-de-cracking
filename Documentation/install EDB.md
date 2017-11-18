@@ -6,7 +6,7 @@ sudo su
 
 apt-get install git build-essential pkg-config
 apt-get install cmake
-apt-get install qt5-qmake libqt5svg5-dev libqt5xmlpatterns5-dev (qtcore5-dev)
+apt-get install qt5-qmake libqt5svg5-dev libqt5xmlpatterns5-dev
 apt-get install libboost-dev
 
 # Install Capstone
