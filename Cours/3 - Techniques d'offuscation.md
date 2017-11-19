@@ -11,7 +11,7 @@ Le moyen le plus simple pour qu'une chaine de caractère n'aparaisse pas lors d'
 Au lieu de faire quelque chose comme ça:
 
 ```C
-if (strcmp(pass, "s3cr3t") == 0) { 
+if (strcmp(pass, "s3cr3t") == 0) {
 // Le mot de passe est déclaré en tant que chaine de caractère.
 // Il sera donc placé dans la section .data et visible avec un strings
 	printf("Good pass!\n");
@@ -36,4 +36,4 @@ Dans le cas d'un chiffrement nécessitant une clé, il faudra aussi s'assuré qu
 
 ### Exercices
 
-[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6), [Ex7](../Exercices/Ex7)
+[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6), [Ex7](../Exercices/Ex7), [Ex8](../Exercices/Ex8) 
