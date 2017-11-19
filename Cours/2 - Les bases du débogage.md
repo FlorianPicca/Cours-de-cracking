@@ -28,4 +28,4 @@ Entrer dans la fonction main
 Essayer de se repérer grace au appels de fonctions
 - Voir quelles fonctions sont appellée où et quand permet de se faire une idée plus visuelle de se qui se passe et de trouver les bout de codes à éviter/appeller
 ### Exercices
-[Ex2](../Exercices/Ex2)
+[Ex2](../Exercices/Ex3)
