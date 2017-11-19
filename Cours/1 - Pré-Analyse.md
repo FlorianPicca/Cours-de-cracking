@@ -78,7 +78,7 @@ GCC: (Gentoo 4.3.4 p1.0, pie-10.1.5) 4.3.4
 GCC: (GNU) 4.1.2 (Gentoo 4.1.2 p1.0.2)
 GCC: (Gentoo 4.3.4 p1.0, pie-10.1.5) 4.3.4
 GCC: (GNU) 4.1.2 (Gentoo 4.1.2 p1.0.2)
-.symtab								<- Les sections du binaire commences avec un point
+.symtab								<- Les sections du binaire commencent avec un point
 .strtab
 .shstrtab
 .interp
@@ -142,23 +142,23 @@ _init
 printError							<- Fonction déclarée par l'utilisateur
 ```
 
-## TODO
+## La commande objdump
 
-- donne beaucoup d'infos:
-  - fonctions de la libc
-  - fonctions de l'utilisateur
-  - chaines affichées
-  - nom du fichier source (.c)
-  
-La commande objdump
-- désassemble toutes les sections
-- pleins d'options
+`objdump -d <filename>`
 
-La commande strace
-- Affiche les appels aux syscall
+Bien que personnelement je ne l'ai jamais utilisée pour résoudre un challenge de craking, il est bon de savoir qu'elle existe et ce qu'elle fait. `objdump` permet, entre autres, de désassembler un binaire. Cela permet de voir le code assembleur de chaque fonctions ainsi que le contenu des autres sections. Cela ne nous intéresse pas vraiment puisqu'un débogueur permet de faire la même chose. Pour plus d'informations vous pouvez consulter le manuel d'utilisation.
 
-La commande ltrace
-- Affiche les appels aux fonctions de la libc
+## La commande strace
+
+`strace ./<exécutable> [args]`
+
+`strace` est un petit débogueur qui va afficher tous les appels système que fait le programme lors de son exécution (write, open, read, ...).
+
+## La commande ltrace
+
+`ltrace ./<exécutable> [args]`
+
+`ltrace` fonctionne de la même manière que `strace` sauf que cette commande va afficher tous les appels aux fonctions (strcmp, printf, ...) ainsi que leur arguments ! C'est la commande que l'on va le plus souvent utiliser car elle donne d'importantes informations sur ce qui se passe à l'intérieur d'un programme avant même de devoir l'ouvrir à la main avec un débogueur. Si un programme fait une comparaison entre un mot de passe et l'entrée utilisateur en utilisant la fonction strcmp(), on verra facilement le mot de passe attendu.
 
 ### Exercices
 [Ex1](../Exercices/Ex1), [CrackMe1](../Exercices/CrackMe1)
