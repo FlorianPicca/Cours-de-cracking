@@ -223,4 +223,4 @@ puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...
 C'est beaucoup plus concis et lisible. Dans ce cas on remarque l'appel à strcmp() avec le mot de passe que l'on a entré et le mot de passe attendu.
 
 ### Exercices
-[Ex1](../Exercices/Ex1), [CrackMe1](../Exercices/Ex2)
+[Ex1](../Exercices/Ex1), [Ex2](../Exercices/Ex2)
