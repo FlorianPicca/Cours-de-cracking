@@ -123,7 +123,7 @@ _fini
 __libc_start_main@@GLIBC_2.0
 _IO_stdin_used
 __data_start
-getString
+getString							<- Fonction déclarée par l'utilisateur
 stderr@@GLIBC_2.0
 __dso_handle
 __DTOR_END__
@@ -152,13 +152,73 @@ Bien que personnelement je ne l'ai jamais utilisée pour résoudre un challenge 
 
 `strace ./<exécutable> [args]`
 
-`strace` est un petit débogueur qui va afficher tous les appels système que fait le programme lors de son exécution (write, open, read, ...).
+`strace` est un petit débogueur qui va afficher tous les appels système que fait le programme lors de son exécution (write, open, read, ...). La sortie est plutôt verbeuse car il y a une première phase d'initialisation avant d'arriver dans le coeur du programme:
+
+```
+$ strace ./challJF 
+execve("./challJF", ["./challJF"], [/* 73 vars */]) = 0
+strace: [ Process PID=2349 runs in 32 bit mode. ]
+brk(NULL)                               = 0x87a3000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf778d000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=105077, ...}) = 0
+mmap2(NULL, 105077, PROT_READ, MAP_PRIVATE, 3, 0) = 0xf774d000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib32/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\3\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\300\207\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1775464, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf774c000
+mmap2(NULL, 1784348, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xf7598000
+mprotect(0xf7745000, 4096, PROT_NONE)   = 0
+mmap2(0xf7746000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ad000) = 0xf7746000
+mmap2(0xf7749000, 10780, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xf7749000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf7597000
+set_thread_area({entry_number:-1, base_addr:0xf7597700, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0 (entry_number:12)
+mprotect(0xf7746000, 8192, PROT_READ)   = 0
+mprotect(0x804a000, 4096, PROT_READ)    = 0
+mprotect(0xf778e000, 4096, PROT_READ)   = 0
+munmap(0xf774d000, 105077)              = 0
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, {8076355287646208, -614467463509926468}) = 0
+ptrace(PTRACE_TRACEME, 0, 0x1, NULL)    = -1 EPERM (Operation not permitted)
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 7), ...}) = 0
+brk(NULL)                               = 0x87a3000
+brk(0x87c4000)                          = 0x87c4000
+write(1, "[FAIL #734] Debugger spotted\n", 29[FAIL #734] Debugger spotted			<- Le programme commence ici
+) = 29
+write(1, "\n", 1
+)                       = 1
+exit_group(0)                           = ?
++++ exited with 0 +++
+```
+
+Dans l'exemple, on voit que tout ce que le programme a fait, c'est afficher un message à l'écran (write) indiquant qu'il a détecté un débogueur. Tout ce qui se trouve avant ne nous intéresse pas car ça fait partie de l'initialisation du programme.
+
 
 ## La commande ltrace
 
 `ltrace ./<exécutable> [args]`
 
 `ltrace` fonctionne de la même manière que `strace` sauf que cette commande va afficher tous les appels aux fonctions (strcmp, printf, ...) ainsi que leur arguments ! C'est la commande que l'on va le plus souvent utiliser car elle donne d'importantes informations sur ce qui se passe à l'intérieur d'un programme avant même de devoir l'ouvrir à la main avec un débogueur. Si un programme fait une comparaison entre un mot de passe et l'entrée utilisateur en utilisant la fonction strcmp(), on verra facilement le mot de passe attendu.
+
+La sortie de `ltrace` pour le même programme que précédemment:
+
+```
+$ ltrace ./challJF 
+__libc_start_main(0x8048a95, 1, 0xff9f3674, 0x8048b40 <unfinished ...>
+clock(0x8000, 0xf7754000, 0xf7752244, 0x804841d)                                  = 604
+ptrace(0, 0, 1, 0)                                                                = 0xffffffff
+puts("[FAIL #734] Debugger spotted\n"[FAIL #734] Debugger spotted
+
+)                                            = 30
+exit(0 <no return ...>
++++ exited (status 0) +++
+```
+
+C'est beaucoup plus concis et lisible. Dans ce cas on apprend qu'il y a un appel à ptrace(), c'est ce qui lui a permit de détecter le débogueur mais on verra cela plus en détail dans les prochains cours.
 
 ### Exercices
 [Ex1](../Exercices/Ex1), [CrackMe1](../Exercices/CrackMe1)
