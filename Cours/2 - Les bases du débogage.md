@@ -14,7 +14,20 @@ Débogage d'un programme nécessitant 2 arguments:
 
 `edb --run <prog> <arg1> <arg2>`
 
-A l'ouverture, on ne se trouve pas encore au début de la fonction _main()_. La première chose à faire est de s'y rendre. Pour cela, exécutez simplement toutes les instructions sans vous soucier de ce qu'elles font jusqu'à l'appel à la fonction ___libc_start_main()_. Exécutez simplement cette fonction et vous allez vous retrouver au début de la fonction _main()_.
+A l'ouverture, on ne se trouve pas encore au début de la fonction _main()_. La première chose à faire est de s'y rendre. Pour cela, exécutez simplement toutes les instructions sans vous soucier de ce qu'elles font jusqu'à l'appel à la fonction ___libc_start_main()_. 
+
+Utiliser les boutons en haut à gauche, il devrai ressembler à ceux-là:
+
+![](../Images/stepButtons.png)
+
+- Le bouton le plus à gauche entre dans les appels de fonction pour pouvoir déboguer plus en profondeur.
+- Le deuxième exécute un instruction sans entrer dans les appels de fonction.
+- Le troisième permet d'exécuter toutes les instructions jusqu'à sortir de la fonction courante.
+- Le dernier exécute l'ensemble du programme.
+
+On utilisera seulement le deuxième et parfois le premier, lorsque l'on souhaite aller voir des fonctions particulières.
+
+Exécutez la fonction ___libc_start_main()_ sans entrer dedans (deuxième bouton) et vous allez vous retrouver au début de la fonction _main()_.
 
 ## Rappels d'assembleur:
 
@@ -28,5 +41,7 @@ Après un appel à une fonction qui renvoie une valeur (strlen, rand, ...), cell
 
 Essayer de se repérer grace au appels de fonctions
 - Voir quelles fonctions sont appellée où et quand permet de se faire une idée plus visuelle de se qui se passe et de trouver les bout de codes à éviter/appeller
+
 ### Exercices
+
 [Ex2](../Exercices/Ex3)
