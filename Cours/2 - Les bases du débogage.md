@@ -41,6 +41,10 @@ Un debugger permet de le modifier et donc de changer le flux d'execution du prog
 
 Modifier les valeurs de retour de certaines fonctions est indispensable pour contourner certaines protections.
 
+- Les instructions de saut conditionnels se basent sur le registre de flag.
+
+Changer les flags depuis le débogueur permet prendre ou non un saut conditionnel. Chaque instruction se base sur des flags différents, il ne faut pas hésiter à se renseigner en cas de doute.
+
 ## Se repérer
 
 Une fois dans un débogueur on peut être vite perdu. Comprendre le programme depuis un débogueur est plus compliqué qu'en lisant le code source mais voici quelques conseils pour vous y retrouver :
