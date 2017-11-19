@@ -34,11 +34,11 @@ Dans tout exécutable il y a des symboles de débogage. C'est ce qui permet à u
 
 `strip <executable>`
 
-## La commande strings
+## La commande `strings`
 
 `strings <filename>`
 
-La commande `strings` permet d'afficher toutes les possibles chaines de caractères présentes dans un fichier. Cela permet d'avoir un aperçu de tout ce que le programme peux afficher à l'écran et même plus car cela affichera aussi les chaines de caractères déclarées dans le programme mais pas forcément affichées (mot de passe, clé cryptographique, ...).
+La commande `strings` permet d'afficher toutes les possibles chaines de caractères présentes dans un fichier. Cela permet d'avoir un aperçu de tout ce que le programme peux afficher à l'écran et même plus car cela affichera aussi les chaines de caractères déclarées dans le programme mais pas forcément affichées (mots de passe, clés cryptographiques, ...).
 
 Dans le cas d'un binaire possédant encore tout ses symboles de débogage, la commande `strings` va pouvoir nous fournir encore plus d'informations ! En effet, on pourra voir le nom des fonctions déclarées par le programmeur, le nom des fonctions de la libc et même, bien qu'inutile, le nom du fichier source originel.
 
@@ -72,7 +72,7 @@ Veuillez entrer le mot de passe : 				<- Chaine déclarée par le programmeur
 Bien joue, vous pouvez valider l'epreuve avec le pass : %s!	<- Chaine déclarée par le programmeur
 Dommage, essaye encore une fois.				<- Chaine déclarée par le programmeur
 GCC: (GNU) 4.1.2 (Gentoo 4.1.2 p1.0.2)
-GCC: (GNU) 4.1.2 (Gentoo 4.1.2 p1.0.2)				<- Information sur le compilateur utilisé
+GCC: (GNU) 4.1.2 (Gentoo 4.1.2 p1.0.2)				<- Informations sur le compilateur utilisé
 GCC: (Gentoo 4.3.4 p1.0, pie-10.1.5) 4.3.4
 GCC: (Gentoo 4.3.4 p1.0, pie-10.1.5) 4.3.4
 GCC: (GNU) 4.1.2 (Gentoo 4.1.2 p1.0.2)
@@ -142,13 +142,13 @@ _init
 printError							<- Fonction déclarée par l'utilisateur
 ```
 
-## La commande objdump
+## La commande `objdump`
 
 `objdump -d <filename>`
 
-Bien que personnelement je ne l'ai jamais utilisée pour résoudre un challenge de craking, il est bon de savoir qu'elle existe et ce qu'elle fait. `objdump` permet, entre autres, de désassembler un binaire. Cela permet de voir le code assembleur de chaque fonctions ainsi que le contenu des autres sections. Cela ne nous intéresse pas vraiment puisqu'un débogueur permet de faire la même chose. Pour plus d'informations vous pouvez consulter le manuel d'utilisation.
+Bien que personnellement je ne l'ai jamais utilisée pour résoudre un challenge de craking, il est bon de savoir qu'elle existe et ce qu'elle fait. `objdump` permet, entre autres, de désassembler un binaire. Cela permet de voir le code en language d'assemblage de chaque fonction ainsi que le contenu des autres sections. Cela ne nous intéresse pas vraiment puisqu'un débogueur permet de faire la même chose. Pour plus d'informations vous pouvez consulter le manuel d'utilisation.
 
-## La commande strace
+## La commande `strace`
 
 `strace ./<exécutable> [args]`
 
@@ -196,13 +196,13 @@ exit_group(0)                           = ?
 +++ exited with 0 +++
 ```
 
-Dans l'exemple, on voit que tout ce que le programme a fait, c'est demander d'entrer un mot de passe (read) puis afficher un message (write). On a pas beaucoup d'informations sur supplémentaires.
+Dans l'exemple, on voit que tout ce que le programme a fait, c'est demander d'entrer un mot de passe (read) puis afficher un message (write). On a pas beaucoup d'informations supplémentaires.
 
-## La commande ltrace
+## La commande `ltrace`
 
 `ltrace ./<exécutable> [args]`
 
-`ltrace` fonctionne de la même manière que `strace` sauf que cette commande va afficher tous les appels aux fonctions (strcmp, printf, ...) ainsi que leur arguments ! C'est la commande que l'on va le plus souvent utiliser car elle donne d'importantes informations sur ce qui se passe à l'intérieur d'un programme avant même de devoir l'ouvrir à la main avec un débogueur. Si un programme fait une comparaison entre un mot de passe et l'entrée utilisateur en utilisant la fonction strcmp(), on verra facilement le mot de passe attendu.
+`ltrace` fonctionne de la même manière que `strace` sauf que cette commande va afficher tous les appels aux fonctions (strcmp, printf, ...) ainsi que leurs arguments ! C'est la commande que l'on va le plus souvent utiliser car elle donne d'importantes informations sur ce qui se passe à l'intérieur d'un programme avant même de devoir l'ouvrir à la main avec un débogueur. Si un programme fait une comparaison entre un mot de passe et l'entrée utilisateur en utilisant la fonction strcmp(), on verra facilement le mot de passe attendu.
 
 La sortie de `ltrace` pour le même programme que précédemment:
 
