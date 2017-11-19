@@ -33,15 +33,30 @@ Exécutez la fonction ___libc_start_main()_ sans entrer dedans (deuxième bouton
 
 Maintenant que le programme est chargé dans un débogueur, il est important d'avoir quelques notions d'assembleur (x86).
 
-le registre EIP indique la prochaine instruction à executer
-- Un debugger permet de le modifier et donc de changer le flux d'execution du programme à votre guise. Utilisez cette technique pour éviter les pièges que l'on vous tend.
+- le registre EIP indique la prochaine instruction à executer
 
-Après un appel à une fonction qui renvoie une valeur (strlen, rand, ...), celle-ci se trouvera dans EAX.
+Un debugger permet de le modifier et donc de changer le flux d'execution du programme à votre guise. Utilisez cette technique pour éviter les pièges que l'on vous tend.
 
+- Après un appel à une fonction qui renvoie une valeur (strlen, rand, ...), celle-ci se trouvera dans EAX.
 
-Essayer de se repérer grace au appels de fonctions
-- Voir quelles fonctions sont appellée où et quand permet de se faire une idée plus visuelle de se qui se passe et de trouver les bout de codes à éviter/appeller
+Modifier les valeurs de retour de certaines fonctions est indispensable pour contourner certaines protections.
+
+## Se repérer
+
+Une fois dans un débogueur on peut être vite perdu. Comprendre le programme depuis un débogueur est plus compliqué qu'en lisant le code source mais voici quelques conseils pour vous y retrouver :
+
+- Voir quelles fonctions sont appellée où et quand permet de se faire une idée plus visuelle de se qui se passe et de trouver les bout de codes à éviter/appeller.
+
+Il n'est pas nécessaire de comprendre chaque instruction individuellement dès le début. Contentez-vous de regarder les appels de fonction et les chaines de caractères qui sont affichées.
+
+- Focalisez-vous sur les saut conditionnels.
+
+En regardant la destination d'un saut conditionnel on peut en déduire si on doit ou non le prendre et donc d'adapter nos paramètres. Par example, si vous voyez qu'un saut vous dirige vers un bout de code qui affiche un message d'erreur, dans le cas d'une condition vraie, il vaudrai mieux faire en sorte que la condition soit fausse.
+
+- Entrez dans les fonctions qui ne sont pas des fonctions de la libc.
+
+En entrant dans les fonctions codées par le programmeur vous comprendrez mieux le fonctionnement global. Si vous ne le faite pas, vous risquez de manquer pas mal de choses. Si vous ne savez pas si une fonction est une fonction de la libc ou pas, une recherche sur Internet devrai vite lever le doute.
 
 ### Exercices
 
-[Ex2](../Exercices/Ex3)
+[Ex3](../Exercices/Ex3)
