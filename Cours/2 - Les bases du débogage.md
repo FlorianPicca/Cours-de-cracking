@@ -16,12 +16,12 @@ Débogage d'un programme nécessitant 2 arguments:
 
 A l'ouverture, on ne se trouve pas encore au début de la fonction _main()_. La première chose à faire est de s'y rendre. Pour cela, exécutez simplement toutes les instructions sans vous soucier de ce qu'elles font jusqu'à l'appel à la fonction ___libc_start_main()_. 
 
-Utiliser les boutons en haut à gauche, il devrai ressembler à ceux-là:
+Utiliser les boutons en haut à gauche, ils devraient ressembler à ceux-là:
 
 ![](../Images/stepButtons.png)
 
-- Le bouton le plus à gauche entre dans les appels de fonction pour pouvoir déboguer plus en profondeur.
-- Le deuxième exécute un instruction sans entrer dans les appels de fonction.
+- Le bouton le plus à gauche entre dans les appels de fonctions pour pouvoir déboguer plus en profondeur.
+- Le deuxième exécute une instruction sans entrer dans les appels de fonctions.
 - Le troisième permet d'exécuter toutes les instructions jusqu'à sortir de la fonction courante.
 - Le dernier exécute l'ensemble du programme.
 
