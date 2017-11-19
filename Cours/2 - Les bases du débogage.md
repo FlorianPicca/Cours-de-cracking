@@ -12,7 +12,7 @@ Après un appel à une fonction qui renvoie une valeur (strlen, rand, ...), cell
 Utiliser EDB (IHM) ou GDB (CLI).
 
 Executer le programme sans débugger pour voir le comportement.
-Pour la suite du cours, j'utiliserai EDB. Si vous souhaitez l'installer, suivez ![le guide d'installation](Documentation/install%20EDB.md).
+Pour la suite du cours, j'utiliserai EDB. Si vous souhaitez l'installer, suivez [le guide d'installation](..Documentation/install%20EDB.md).
 
 débug du programme sans passage d'arguments:
 
@@ -28,4 +28,4 @@ Entrer dans la fonction main
 Essayer de se repérer grace au appels de fonctions
 - Voir quelles fonctions sont appellée où et quand permet de se faire une idée plus visuelle de se qui se passe et de trouver les bout de codes à éviter/appeller
 ### Exercices
-![Ex2](Exercices/Ex2)
+[Ex2](../Exercices/Ex2)
