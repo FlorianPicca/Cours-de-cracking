@@ -59,4 +59,4 @@ En entrant dans les fonctions codées par le programmeur vous comprendrez mieux 
 
 ### Exercices
 
-[Ex3](../Exercices/Ex3)
+[Ex4](../Exercices/Ex4), [Ex3](../Exercices/Ex3)
