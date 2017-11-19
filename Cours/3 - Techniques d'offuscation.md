@@ -23,15 +23,17 @@ Faites plutôt ça:
 ```C
 if (pass[0] == 's' && pass[1] == '3' && pass[2] == 'c' && pass[3] == 'r' pass[4] == '3' && pass[5] == 't') {
 // Pas de déclaration de chaine de caractère, rien dans la section .data
-// Les caractères seront remplacé au moment de la compilation par leur code ASCII directement dans la section .text
+// Les caractères seront remplacés au moment de la compilation par leur code ASCII directement dans la section .text
 	printf("Good pass!\n");
 }
 ```
 
 ## Ne pas stocker son mot de passe en clair
 
-La technique précédente est certes simple mais pas pratique du tout.
+La technique précédente est certes simple mais pas pratique du tout. Une meilleure alternative serait de garder une version chiffré du mot de passe. Bien souvent on rencontre un chiffrement très simple à base de XOR.
+
+Dans le cas d'un chiffrement nécessitant une clé, il faudra aussi s'assuré que la clé ne soit pas trop simple à trouver.
 
 ### Exercices
 
-[Ex3](../Exercices/Ex3)
+[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6), [Ex7](../Exercices/Ex7)
