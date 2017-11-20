@@ -1,6 +1,6 @@
 # Techniques d'offuscation
 
-On a vu dans le premier chapitre qu'il est possible de retrouver les mots de passe cachés dans un programme avec la commande `strings` et parfois même avec `ltrace`. Nous allons voir comment il est possible de les dissimuler pour éviter qu'ils soient trouvé aussi simplement.
+On a vu dans le premier chapitre qu'il est possible de retrouver les mots de passe cachés dans un programme avec la commande `strings` et parfois même avec `ltrace`. Nous allons voir comment il est possible de les dissimuler pour éviter qu'ils soient trouvés aussi simplement.
 
 Certaines des techniques que nous allons voir ont déjà été utilisées dans les exercices des chapitres précédants.
 
@@ -32,8 +32,8 @@ if (pass[0] == 's' && pass[1] == '3' && pass[2] == 'c' && pass[3] == 'r' pass[4]
 
 La technique précédente est certes simple mais pas pratique du tout. Une meilleure alternative serait de garder une version chiffré du mot de passe. Bien souvent on rencontre un chiffrement très simple à base de XOR.
 
-Dans le cas d'un chiffrement nécessitant une clé, il faudra aussi s'assuré que la clé ne soit pas trop simple à trouver.
+Dans le cas d'un chiffrement nécessitant une clé, il faudra aussi s'assurer que la clé ne soit pas trop simple à trouver.
 
 ### Exercices
 
-[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6), [Ex7](../Exercices/Ex7), [Ex8](../Exercices/Ex8) 
+[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6), [Ex7](../Exercices/Ex7), [Ex8](../Exercices/Ex8)

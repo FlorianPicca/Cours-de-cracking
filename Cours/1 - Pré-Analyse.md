@@ -9,7 +9,7 @@ Lorsque l'on a affaire à un binaire, il est bien de commencer par l'analyser po
 La commande `file` permet de déterminer le type du fichier. Dans notre cas ce sera un exécutable de type ELF. Mais ce n'est pas la seule information utile que nous pouvons en tirer. Voici un exemple de ce que donne cette commande sur un binaire:
 
 ```
-$ file example 
+$ file example
 example: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=3ba4e2952af627b035a7e69ad4d1b379c8c85051, not stripped
 ```
 
@@ -44,7 +44,7 @@ Dans le cas d'un binaire possédant encore tout ses symboles de débogage, la co
 
 
 ```
-$ strings crackme 
+$ strings crackme
 /lib/ld-linux.so.2
 __gmon_start__							<- Fonction de la libc
 libc.so.6
@@ -202,12 +202,12 @@ Dans l'exemple, on voit que tout ce que le programme a fait, c'est demander d'en
 
 `ltrace ./<exécutable> [args]`
 
-`ltrace` fonctionne de la même manière que `strace` sauf que cette commande va afficher tous les appels aux fonctions (strcmp, printf, ...) ainsi que leurs arguments ! C'est la commande que l'on va le plus souvent utiliser car elle donne d'importantes informations sur ce qui se passe à l'intérieur d'un programme avant même de devoir l'ouvrir à la main avec un débogueur. Si un programme fait une comparaison entre un mot de passe et l'entrée utilisateur en utilisant la fonction strcmp(), on verra facilement le mot de passe attendu.
+`ltrace` fonctionne de la même manière que `strace` sauf que cette commande va afficher tous les appels aux fonctions de la libc (strcmp, printf, ...) ainsi que leurs arguments ! C'est la commande que l'on va le plus souvent utiliser car elle donne d'importantes informations sur ce qui se passe à l'intérieur d'un programme avant même de devoir l'ouvrir à la main avec un débogueur. Si un programme fait une comparaison entre un mot de passe et l'entrée utilisateur en utilisant la fonction strcmp(), on verra facilement le mot de passe attendu.
 
 La sortie de `ltrace` pour le même programme que précédemment:
 
 ```
-$ ltrace ./example 
+$ ltrace ./example
 __libc_start_main(0x804858d, 1, 0xffffd6f4, 0x8048670 <unfinished ...>
 printf("password: ")                                                                                          = 10
 getchar(0x80486f0, 0, 0xf7e45830, 0x80486bbpassword: test

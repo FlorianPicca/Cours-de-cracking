@@ -14,7 +14,7 @@ Débogage d'un programme nécessitant 2 arguments:
 
 `edb --run <prog> <arg1> <arg2>`
 
-A l'ouverture, on ne se trouve pas encore au début de la fonction _main()_. La première chose à faire est de s'y rendre. Pour cela, exécutez simplement toutes les instructions sans vous soucier de ce qu'elles font jusqu'à l'appel à la fonction ___libc_start_main()_. 
+A l'ouverture, on ne se trouve pas encore au début de la fonction _main()_. La première chose à faire est de s'y rendre. Pour cela, exécutez simplement toutes les instructions sans vous soucier de ce qu'elles font, jusqu'à l'appel à la fonction *__libc_start_main()*.
 
 Utiliser les boutons en haut à gauche, ils devraient ressembler à ceux-là:
 
@@ -27,35 +27,35 @@ Utiliser les boutons en haut à gauche, ils devraient ressembler à ceux-là:
 
 On utilisera seulement le deuxième et parfois le premier, lorsque l'on souhaite aller voir des fonctions particulières.
 
-Exécutez la fonction ___libc_start_main()_ sans entrer dedans (deuxième bouton) et vous allez vous retrouver au début de la fonction _main()_.
+Exécutez la fonction *__libc_start_main()* sans entrer dedans (deuxième bouton) et vous allez vous retrouver au début de la fonction _main()_.
 
 ## Rappels d'assembleur:
 
 Maintenant que le programme est chargé dans un débogueur, il est important d'avoir quelques notions d'assembleur (x86).
 
-- le registre EIP indique la prochaine instruction à executer
+- le registre EIP indique la prochaine instruction à exécuter.
 
-Un débogueur permet de le modifier et donc de changer le flux d'execution du programme à votre guise. Utilisez cette technique pour éviter les pièges que l'on vous tend.
+Un débogueur permet de le modifier et donc de changer le flux d'exécution du programme à votre guise. Utilisez cette technique pour éviter les pièges que l'on vous tend.
 
 - Après un appel à une fonction qui renvoie une valeur (strlen, rand, ...), celle-ci se trouvera dans EAX.
 
 Modifier les valeurs de retour de certaines fonctions est indispensable pour contourner certaines protections.
 
-- Les instructions de saut conditionnels se basent sur le registre de flag.
+- Les instructions de sauts conditionnels se basent sur le registre de flags.
 
-Changer les flags depuis le débogueur permet prendre ou non un saut conditionnel. Chaque instruction se base sur des flags différents, il ne faut pas hésiter à se renseigner en cas de doute.
+Changer les flags depuis le débogueur permet de prendre ou non un saut conditionnel. Chaque instruction se base sur des flags différents, il ne faut pas hésiter à se renseigner en cas de doute.
 
 ## Se repérer
 
-Une fois dans un débogueur on peut être vite perdu. Comprendre le programme depuis un débogueur est plus compliqué qu'en lisant le code source mais voici quelques conseils pour vous y retrouver :
+Une fois dans un débogueur on peut vite être perdu. Comprendre le programme depuis un débogueur est plus compliqué qu'en lisant le code source mais voici quelques conseils pour vous y retrouver :
 
-- Voir quelles fonctions sont appellée où et quand permet de se faire une idée plus visuelle de se qui se passe et de trouver les bout de codes à éviter/appeller.
+- Voir quelles fonctions sont appellées où et quand permet de se faire une idée plus visuelle de ce qui se passe et de trouver les bouts de code à éviter/appeller.
 
-Il n'est pas nécessaire de comprendre chaque instruction individuellement dès le début. Contentez-vous de regarder les appels de fonction et les chaines de caractères qui sont affichées.
+Il n'est pas nécessaire de comprendre chaque instruction individuellement dès le début. Contentez-vous de regarder les appels de fonctions et les chaines de caractères qui sont affichées.
 
-- Focalisez-vous sur les saut conditionnels.
+- Focalisez-vous sur les sauts conditionnels.
 
-En regardant la destination d'un saut conditionnel on peut en déduire si on doit ou non le prendre et donc d'adapter nos paramètres. Par example, si vous voyez qu'un saut vous dirige vers un bout de code qui affiche un message d'erreur, dans le cas d'une condition vraie, il vaudrai mieux faire en sorte que la condition soit fausse.
+En regardant la destination d'un saut conditionnel on peut en déduire si on doit ou non le prendre et donc d'adapter nos paramètres. Par exemple, si vous voyez qu'un saut vous dirige vers un bout de code qui affiche un message d'erreur, dans le cas d'une condition vraie, il vaudrai mieux faire en sorte que la condition soit fausse.
 
 - Entrez dans les fonctions qui ne sont pas des fonctions de la libc.
 
