@@ -1,4 +1,4 @@
-# Techniques d'offuscation
+# Techniques d'obfuscation
 
 On a vu dans le premier chapitre qu'il est possible de retrouver les mots de passe cachés dans un programme avec la commande `strings` et parfois même avec `ltrace`. Nous allons voir comment il est possible de les dissimuler pour éviter qu'ils soient trouvés aussi simplement.
 
