@@ -32,7 +32,17 @@ if (pass[0] == 's' && pass[1] == '3' && pass[2] == 'c' && pass[3] == 'r' pass[4]
 
 La technique précédente est certes simple mais pas pratique du tout. Une meilleure alternative serait de garder une version chiffré du mot de passe. Bien souvent on rencontre un chiffrement très simple à base de XOR.
 
+Le mot de passe entré par l'utilisateur est chiffré avec le même algorithme de chiffrement et on compare le résultat avec le vrai mot de passe chiffré.
+
+Si on souhaite éviter que la comparaison apparaisse lors d'un `ltrace`, il faudra implémenter sa propre fonction de comparaison de chaine de caractères.
+
 Dans le cas d'un chiffrement nécessitant une clé, il faudra aussi s'assurer que la clé ne soit pas trop simple à trouver.
+
+## Utiliser des hashs
+
+Une méthode encore plus sûre serait de ne stocker qu'un hash (md5, sha256, ...) du mot de passe attendu. Les fonctions de hashage n'étant pas réversibles, c'est une meilleure alternative que la technique précédante.
+
+Lorsque l'utilisteur entre un mot de passe, on calcule son hash et on le compare à celui du vrai mot de passe.
 
 ### Exercices
 
