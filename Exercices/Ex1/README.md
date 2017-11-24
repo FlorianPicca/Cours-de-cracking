@@ -16,3 +16,7 @@ Quelles sont les fonctions de la libc utilisées ?
 Lancer `strace` et retrouver la ligne résponsable de l'affichage du message.
 
 Lancer `ltrace` et retrouver les fonctions de la libc trouvées précédemment.
+
+### Données
+
+[Ex1](Ex1?raw=true)
