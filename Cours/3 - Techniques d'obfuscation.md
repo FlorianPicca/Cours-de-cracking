@@ -46,4 +46,5 @@ Lorsque l'utilisteur entre un mot de passe, on calcule son hash et on le compare
 
 ### Exercices
 
-[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6), [Ex7](../Exercices/Ex7), [Ex8](../Exercices/Ex8)
+[Ex3](../Exercices/Ex3), [Ex6](../Exercices/Ex6),
+[Ex9](../Exercices/Ex9), [Ex7](../Exercices/Ex7), [Ex8](../Exercices/Ex8)
