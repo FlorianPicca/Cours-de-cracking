@@ -38,9 +38,9 @@ Dans tout exécutable il y a des symboles de débogage. C'est ce qui permet à u
 
 `strings <filename>`
 
-La commande `strings` permet d'afficher toutes les possibles chaines de caractères présentes dans un fichier. Cela permet d'avoir un aperçu de tout ce que le programme peux afficher à l'écran et même plus car cela affichera aussi les chaines de caractères déclarées dans le programme mais pas forcément affichées (mots de passe, clés cryptographiques, ...).
+La commande `strings` permet d'afficher toutes les possibles chaines de caractères présentes dans un fichier. Cela permet d'avoir un aperçu de tout ce que le programme peut afficher à l'écran et même plus car cela affichera aussi les chaines de caractères déclarées dans le programme mais pas forcément affichées (mots de passe, clés cryptographiques, ...).
 
-Dans le cas d'un binaire possédant encore tout ses symboles de débogage, la commande `strings` va pouvoir nous fournir encore plus d'informations ! En effet, on pourra voir le nom des fonctions déclarées par le programmeur, le nom des fonctions de la libc et même, bien qu'inutile, le nom du fichier source originel.
+Dans le cas d'un binaire possédant encore tous ses symboles de débogage, la commande `strings` va pouvoir nous fournir encore plus d'informations ! En effet, on pourra voir le nom des fonctions déclarées par le programmeur, le nom des fonctions de la libc et même, bien qu'inutile, le nom du fichier source originel.
 
 
 ```
@@ -146,7 +146,7 @@ printError							<- Fonction déclarée par l'utilisateur
 
 `objdump -d <filename>`
 
-Bien que personnellement je ne l'ai jamais utilisée pour résoudre un challenge de craking, il est bon de savoir qu'elle existe et ce qu'elle fait. `objdump` permet, entre autres, de désassembler un binaire. Cela permet de voir le code en language d'assemblage de chaque fonction ainsi que le contenu des autres sections. Cela ne nous intéresse pas vraiment puisqu'un débogueur permet de faire la même chose. Pour plus d'informations vous pouvez consulter le manuel d'utilisation.
+Bien que personnellement je ne l'ai jamais utilisée pour résoudre un challenge de craking, il est bon de savoir qu'elle existe et ce qu'elle fait. `objdump` permet, entre autres, de désassembler un binaire. Cela permet de voir le code en langage d'assemblage de chaque fonction ainsi que le contenu des autres sections. Cela ne nous intéresse pas vraiment puisqu'un débogueur permet de faire la même chose. Pour plus d'informations vous pouvez consulter le manuel d'utilisation.
 
 ## La commande `strace`
 

@@ -55,11 +55,11 @@ Il n'est pas nécessaire de comprendre chaque instruction individuellement dès 
 
 - Focalisez-vous sur les sauts conditionnels.
 
-En regardant la destination d'un saut conditionnel on peut en déduire si on doit ou non le prendre et donc d'adapter nos paramètres. Par exemple, si vous voyez qu'un saut vous dirige vers un bout de code qui affiche un message d'erreur, dans le cas d'une condition vraie, il vaudrai mieux faire en sorte que la condition soit fausse.
+En regardant la destination d'un saut conditionnel on peut en déduire si on doit ou non le prendre et donc d'adapter nos paramètres. Par exemple, si vous voyez qu'un saut vous dirige vers un bout de code qui affiche un message d'erreur, dans le cas d'une condition vraie, il vaudrait mieux faire en sorte que la condition soit fausse.
 
 - Entrez dans les fonctions qui ne sont pas des fonctions de la libc.
 
-En entrant dans les fonctions codées par le programmeur vous comprendrez mieux le fonctionnement global. Si vous ne le faite pas, vous risquez de manquer pas mal de choses. Si vous ne savez pas si une fonction est une fonction de la libc ou pas, une recherche sur Internet devrai vite lever le doute.
+En entrant dans les fonctions codées par le programmeur vous comprendrez mieux le fonctionnement global. Si vous ne le faite pas, vous risquez de manquer pas mal de choses. Si vous ne savez pas si une fonction est une fonction de la libc ou pas, une recherche sur Internet devrait vite lever le doute.
 
 ### Exercices
 
