@@ -24,7 +24,7 @@ Le type du binaire indique s'il s'agit d'un exécutable pour Linux (**E**xecutab
 
 L'architecture indique s'il s'agit d'un programme 32 ou 64 bit. Un programme 64 bit ne pourra pas être exécuté sur une machine 32 bit, tandis qu'une machine 64 bit pourra exécuter un programme 32 bit. Si vous n'arrivez pas à exécuter un programme 32 bit, il vous faudra installer un paquet supplémentaire:
 
-`sudo apt-get install libc6-i386`
+`sudo apt-get install libc6-dev-i386`
 
 Le processeur sur un ordinateur est généralement Intel. Les téléphones portables ont un processeur ARM. Il existe d'autres types de processeurs comme par exemple MIPS. Vous ne pourrez exécuter un binaire que si le processeur correspond à celui de votre machine. Si ce n'est pas le cas et que vous avez affaire à un executable ARM, par exemple, il faudra passer par un émulateur, comme qemu.
 
